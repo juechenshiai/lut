@@ -59,19 +59,6 @@ Other mirrored sources and their categories, attribution, and license terms are 
 - [abpy/FujifilmCameraProfiles - cube lut](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)
 - [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
 
-The source list distinguishes mirrored files from link-only references. The two projects below are listed with upstream links and category metadata only; their LUT files are not hosted here because redistribution permission for the specific assets has not been confirmed. Visit the upstream repositories to review and follow their terms.
-
-| Project | Categories / contents | Status and notes |
-|---|---|---|
-| [YahiaAngelo/Film-Luts - luts](https://github.com/YahiaAngelo/Film-Luts/tree/main/luts) | Black and white, color slide, Fujifilm X-Trans III, consumer/pro instant, color/new/old negative, and print looks | **Link only; files are not hosted here.** The repository is marked MIT, but its README disclaims ownership of the LUTs, so that label does not confirm redistribution rights for the specific files. |
-| [imnz730/LUTs](https://github.com/imnz730/LUTs) | ACES, camera-vendor LUTs, DCI, DJI, film looks, HDR, VFX, and color-space conversions | **Link only; files are not hosted here.** No repository license or explicit LUT redistribution terms were identified. |
-
-Other mirrored sources and their categories, attribution, and license terms are listed below:
-
-- [slaycamera/luts - luts](https://github.com/slaycamera/luts/tree/main/luts)
-- [abpy/FujifilmCameraProfiles - cube lut](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)
-- [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
-
 All LUTs and related materials remain the property of their respective authors or rights holders. Listing a source does not mean this project owns the material, grant any license, make any warranty, or imply endorsement of an upstream project. Users should visit each source and verify the license, attribution requirements, and other terms applicable to each file, and are responsible for ensuring their use complies with those terms.
 
 ### Mirrored Categories and Attribution
