@@ -8,11 +8,16 @@
 
 ### 来源
 
-当前收集范围包括以下上游项目及目录：
+当前来源分为已镜像和仅链接两类。以下两个项目仅提供上游链接与分类信息，不在本仓库托管其 LUT 文件；因为尚未确认具体素材的再分发许可，请前往上游仓库查看和遵守其条款。
 
-- [YahiaAngelo/Film-Luts - luts](https://github.com/YahiaAngelo/Film-Luts/tree/main/luts)
+| 项目 | 分类 / 内容 | 状态与说明 |
+|---|---|---|
+| [YahiaAngelo/Film-Luts - luts](https://github.com/YahiaAngelo/Film-Luts/tree/main/luts) | 黑白、彩色反转片、Fujifilm X-Trans III、消费级/专业即时成像、彩色/新式/传统负片、打印 | **仅链接，不托管文件。** 仓库虽标注 MIT，但 README 对 LUT 所有权作了免责声明，不能据此确认具体 LUT 可再分发。 |
+| [imnz730/LUTs](https://github.com/imnz730/LUTs) | ACES、相机厂商 LUT、DCI、DJI、Film Looks、HDR、VFX 与色彩空间转换 | **仅链接，不托管文件。** 未识别到仓库许可证或明确的 LUT 再分发声明。 |
+
+其他已镜像来源及其分类、署名和许可条件见下表：
+
 - [slaycamera/luts - luts](https://github.com/slaycamera/luts/tree/main/luts)
-- [imnz730/LUTs](https://github.com/imnz730/LUTs)
 - [abpy/FujifilmCameraProfiles - cube lut](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)
 - [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
 
@@ -41,11 +46,29 @@ This project discovers, collects, and organizes LUT (Look-Up Table) resources an
 
 ### Sources
 
-The current collection scope includes the following upstream projects and directories:
+The source list distinguishes mirrored files from link-only references. The two projects below are listed with upstream links and category metadata only; their LUT files are not hosted here because redistribution permission for the specific assets has not been confirmed. Visit the upstream repositories to review and follow their terms.
 
-- [YahiaAngelo/Film-Luts - luts](https://github.com/YahiaAngelo/Film-Luts/tree/main/luts)
+| Project | Categories / contents | Status and notes |
+|---|---|---|
+| [YahiaAngelo/Film-Luts - luts](https://github.com/YahiaAngelo/Film-Luts/tree/main/luts) | Black and white, color slide, Fujifilm X-Trans III, consumer/pro instant, color/new/old negative, and print looks | **Link only; files are not hosted here.** The repository is marked MIT, but its README disclaims ownership of the LUTs, so that label does not confirm redistribution rights for the specific files. |
+| [imnz730/LUTs](https://github.com/imnz730/LUTs) | ACES, camera-vendor LUTs, DCI, DJI, film looks, HDR, VFX, and color-space conversions | **Link only; files are not hosted here.** No repository license or explicit LUT redistribution terms were identified. |
+
+Other mirrored sources and their categories, attribution, and license terms are listed below:
+
 - [slaycamera/luts - luts](https://github.com/slaycamera/luts/tree/main/luts)
-- [imnz730/LUTs](https://github.com/imnz730/LUTs)
+- [abpy/FujifilmCameraProfiles - cube lut](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)
+- [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
+
+The source list distinguishes mirrored files from link-only references. The two projects below are listed with upstream links and category metadata only; their LUT files are not hosted here because redistribution permission for the specific assets has not been confirmed. Visit the upstream repositories to review and follow their terms.
+
+| Project | Categories / contents | Status and notes |
+|---|---|---|
+| [YahiaAngelo/Film-Luts - luts](https://github.com/YahiaAngelo/Film-Luts/tree/main/luts) | Black and white, color slide, Fujifilm X-Trans III, consumer/pro instant, color/new/old negative, and print looks | **Link only; files are not hosted here.** The repository is marked MIT, but its README disclaims ownership of the LUTs, so that label does not confirm redistribution rights for the specific files. |
+| [imnz730/LUTs](https://github.com/imnz730/LUTs) | ACES, camera-vendor LUTs, DCI, DJI, film looks, HDR, VFX, and color-space conversions | **Link only; files are not hosted here.** No repository license or explicit LUT redistribution terms were identified. |
+
+Other mirrored sources and their categories, attribution, and license terms are listed below:
+
+- [slaycamera/luts - luts](https://github.com/slaycamera/luts/tree/main/luts)
 - [abpy/FujifilmCameraProfiles - cube lut](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)
 - [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
 
