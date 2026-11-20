@@ -13,3 +13,4 @@ This repository mirrors selected LUT files from the upstream sources below. The 
 ## Scope / 范围
 
 Only the listed LUT assets are mirrored; their content is kept unchanged. Upstream rights and license terms govern each file. No additional rights are granted by this repository. Contact the maintainer for removal or correction requests. / 仅镜像上述 LUT 资产，文件内容保持原样。各文件仍受其上游权利和许可条款约束，本仓库不额外授予权利。如需删除或更正，请联系维护者。
+| [luts/glassmeter/](luts/glassmeter/) | [TrondW/glassmeter-film-looks](https://github.com/TrondW/glassmeter-film-looks/tree/main/luts/cube-srgb-33) | [CC BY 4.0](licenses/CC-BY-4.0-GlassMeter.txt); credit: **Film simulations from GlassMeter by Glass Works (glass-works.ai)**. / 署名：Film simulations from GlassMeter by Glass Works (glass-works.ai)。 |
