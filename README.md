@@ -18,6 +18,16 @@
 
 所有 LUT 及相关内容均归其各自作者或权利人所有。此处列出来源不代表本项目拥有这些内容，也不构成任何形式的授权、担保或对上游项目的背书。使用者应访问对应来源，核对具体文件的许可证、署名要求和其他使用条件，并自行确保其使用方式符合适用条款。
 
+### 已镜像分类与署名
+
+| 目标目录 | 分类 / 内容 | 数量 | 来源与许可 |
+|---|---|---:|---|
+| [`luts/slaycamera/`](luts/slaycamera/) | Amber、Fade、Neon、Film、Portrait 电影感 LUT | 5 | [slaycamera/luts](https://github.com/slaycamera/luts/tree/main/luts)，作者 slay，CC BY 4.0；须署名，上游说明不得原样出售原始文件。 |
+| [`luts/fujifilm-camera-profiles/`](luts/fujifilm-camera-profiles/) | Fujifilm 外观模拟：Provia、Velvia、Astia、Classic Chrome、Pro Neg、Eterna、Reala Ace 等；含 Display P3 与 sRGB 版本 | 22 | [abpy/FujifilmCameraProfiles](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)，CC BY-NC-SA 4.0；须署名、非商业使用并以相同许可共享。 |
+| [`luts/bbc-hdr/v1.8-grouped/`](luts/bbc-hdr/v1.8-grouped/) | BBC HDR/SDR 转换 LUT：DaVinci Type III Headroom（12）、Deprecated Conversions（44）、Primary Live Production Type III Headroom（20）、Primary Post-Production Type I Nominal Range（12）、Secondary Conversions（22）、Test LUTs（4） | 114 | [BBC LUT Release v1.8](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)，Apache-2.0；须随附许可证并保留适用声明。 |
+
+以上镜像均为 `.cube` 文件。完整归属、许可证文本和适用说明见 [`ATTRIBUTION.md`](ATTRIBUTION.md) 与 [`licenses/`](licenses/)。YahiaAngelo/Film-Luts 和 imnz730/LUTs 目前仅列为来源，因具体 LUT 的再分发许可未确认，未复制其文件。
+
 ### 非商业用途与删除说明
 
 - 本项目仅作资源采集、分类和来源记录，不用于商业行为；不得将本项目理解为商业授权或商业用途许可。
@@ -40,6 +50,16 @@ The current collection scope includes the following upstream projects and direct
 - [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
 
 All LUTs and related materials remain the property of their respective authors or rights holders. Listing a source does not mean this project owns the material, grant any license, make any warranty, or imply endorsement of an upstream project. Users should visit each source and verify the license, attribution requirements, and other terms applicable to each file, and are responsible for ensuring their use complies with those terms.
+
+### Mirrored Categories and Attribution
+
+| Target directory | Category / contents | Count | Source and license |
+|---|---|---:|---|
+| [`luts/slaycamera/`](luts/slaycamera/) | Amber, Fade, Neon, Film, and Portrait cinematic LUTs | 5 | [slaycamera/luts](https://github.com/slaycamera/luts/tree/main/luts), creator slay, CC BY 4.0; attribution required. The upstream README says not to sell the original files as-is. |
+| [`luts/fujifilm-camera-profiles/`](luts/fujifilm-camera-profiles/) | Fujifilm looks including Provia, Velvia, Astia, Classic Chrome, Pro Neg, Eterna, and Reala Ace; Display P3 and sRGB variants | 22 | [abpy/FujifilmCameraProfiles](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut), CC BY-NC-SA 4.0; attribution, non-commercial use, and same-license sharing required. |
+| [`luts/bbc-hdr/v1.8-grouped/`](luts/bbc-hdr/v1.8-grouped/) | BBC HDR/SDR conversion LUTs: DaVinci Type III Headroom (12), Deprecated Conversions (44), Primary Live Production Type III Headroom (20), Primary Post-Production Type I Nominal Range (12), Secondary Conversions (22), and Test LUTs (4) | 114 | [BBC LUT Release v1.8](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16), Apache-2.0; include the license and retain applicable notices. |
+
+All mirrored files are `.cube` LUTs. See [`ATTRIBUTION.md`](ATTRIBUTION.md) and [`licenses/`](licenses/) for full attribution, license texts, and applicable terms. YahiaAngelo/Film-Luts and imnz730/LUTs are listed as sources only; their specific LUT redistribution permissions have not been confirmed, so their files are not mirrored.
 
 ### Non-commercial Use and Removal
 
