@@ -1,0 +1,30 @@
+{
+  "slaycamera": {
+    "repository": "slaycamera/luts",
+    "ref": "main",
+    "commit": "a1709044efe115640dde1dee17d4185fc059af0d",
+    "url": "https://github.com/slaycamera/luts/commit/a1709044efe115640dde1dee17d4185fc059af0d",
+    "count": 5
+  },
+  "fujifilm-camera-profiles": {
+    "repository": "abpy/FujifilmCameraProfiles",
+    "ref": "master",
+    "commit": "b5a1f16abfb2759b337c83d69d9dc49470e7e518",
+    "url": "https://github.com/abpy/FujifilmCameraProfiles/commit/b5a1f16abfb2759b337c83d69d9dc49470e7e518",
+    "count": 22
+  },
+  "bbc-hdr-v1-8": {
+    "repository": "bbc/bbc_hdr_television_production_luts",
+    "ref": "main",
+    "commit": "dd2744578d64f1a0d0b9f2eb58276ffa10cc4895",
+    "url": "https://github.com/bbc/bbc_hdr_television_production_luts/commit/dd2744578d64f1a0d0b9f2eb58276ffa10cc4895",
+    "count": 114
+  },
+  "glassmeter": {
+    "repository": "TrondW/glassmeter-film-looks",
+    "ref": "main",
+    "commit": "6a65ee016120d6fc3e17219c8a7d7a1d187abd90",
+    "url": "https://github.com/TrondW/glassmeter-film-looks/commit/6a65ee016120d6fc3e17219c8a7d7a1d187abd90",
+    "count": 30
+  }
+}
