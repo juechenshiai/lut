@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "id": "slaycamera",
+      "repository": "slaycamera/luts",
+      "ref": "main",
+      "sourcePrefix": "luts/",
+      "targetPrefix": "luts/slaycamera/",
+      "extensions": [".cube"]
+    },
+    {
+      "id": "fujifilm-camera-profiles",
+      "repository": "abpy/FujifilmCameraProfiles",
+      "ref": "master",
+      "sourcePrefix": "cube lut/",
+      "targetPrefix": "luts/fujifilm-camera-profiles/",
+      "extensions": [".cube"]
+    },
+    {
+      "id": "bbc-hdr-v1-8",
+      "repository": "bbc/bbc_hdr_television_production_luts",
+      "ref": "main",
+      "sourcePrefix": "LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16/",
+      "targetPrefix": "luts/bbc-hdr/v1.8-grouped/",
+      "extensions": [".cube"]
+    },
+    {
+      "id": "glassmeter",
+      "repository": "TrondW/glassmeter-film-looks",
+      "ref": "main",
+      "sourcePrefix": "luts/cube-srgb-33/",
+      "targetPrefix": "luts/glassmeter/",
+      "extensions": [".cube"]
+    }
+  ]
+}
