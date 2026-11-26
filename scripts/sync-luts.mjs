@@ -5,6 +5,7 @@ const ownerRepo = process.env.GITHUB_REPOSITORY;
 const token = process.env.GITHUB_TOKEN;
 const config = JSON.parse(await fs.readFile('luts-sources.json', 'utf8'));
 const commitStatePath = 'source-commits.json';
+const catalogPath = 'luts-catalog.json';
 const commitState = JSON.parse(await fs.readFile(commitStatePath, 'utf8').catch(() => '{}'));
 const headers = {
   Accept: 'application/vnd.github+json',
@@ -42,6 +43,82 @@ async function createBlob(bytes) {
     method: 'POST',
     body: JSON.stringify({ content: Buffer.from(bytes).toString('base64'), encoding: 'base64' }),
   })).sha;
+}
+
+/** Reads the existing catalog from the target Git tree, if present. */
+async function readCatalog(targetEntries) {
+  const catalogEntry = targetEntries[catalogPath];
+  if (!catalogEntry) return { catalogVersion: '1.0.0', formats: ['Adobe CUBE 3D LUT (.cube)'], sources: [], filters: [] };
+  const blob = await getJson(`${api}/repos/${ownerRepo}/git/blobs/${catalogEntry.sha}`);
+  return JSON.parse(Buffer.from(blob.content, 'base64').toString('utf8'));
+}
+
+/** Creates a basic bilingual catalog item for a newly discovered LUT. */
+function catalogItem(source, file, commit) {
+  const relativePath = file.path.slice(source.sourcePrefix.length);
+  const filename = relativePath.split('/').pop().replace(/\.cube$/i, '');
+  const label = filename.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const category = relativePath.includes('/') ? relativePath.split('/')[0].replace(/[_-]+/g, ' ') : 'General';
+  const sourcePath = file.path.split('/').map(encodeURIComponent).join('/');
+  const sourceLicense = source.license ?? { spdx: 'UNKNOWN', name: 'Upstream terms', url: `https://github.com/${source.repository}` };
+  return {
+    id: `${source.id}-${relativePath.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`.replace(/-+$/g, ''),
+    name: { zh: label, en: label },
+    category: { zh: category, en: category },
+    format: 'Adobe CUBE 3D LUT (.cube)',
+    source: { id: source.id, repository: source.repository, branch: source.ref, path: file.path, commit },
+    githubUrl: `https://github.com/${source.repository}/blob/${source.ref}/${sourcePath}`,
+    downloadUrl: `https://raw.githubusercontent.com/${source.repository}/${source.ref}/${sourcePath}`,
+    localPath: `${source.targetPrefix}${relativePath}`,
+    license: sourceLicense,
+    attribution: source.attribution ?? source.repository,
+  };
+}
+
+/** Rebuilds the catalog while preserving curated metadata for unchanged files. */
+function buildCatalog(existing, sources, sourceFilesById, latestCommits) {
+  const curated = new Map(existing.filters.map(item => [item.localPath, item]));
+  const filters = [];
+  const sourceRows = [];
+  for (const source of sources) {
+    const changedFiles = sourceFilesById.get(source.id);
+    const existingSource = existing.sources.find(item => item.id === source.id);
+    const files = changedFiles ?? (existing.filters
+      .filter(item => item.source?.id === source.id)
+      .map(item => ({ path: item.source.path, sha: item.source.commit, size: 0 })));
+    const commit = latestCommits[source.id]?.commit ?? existingSource?.latestKnownCommit ?? 'baseline unavailable';
+    const sourceLicense = source.license ?? existingSource?.license;
+    sourceRows.push({
+      id: source.id,
+      name: existingSource?.name ?? { zh: source.id, en: source.id },
+      repository: source.repository,
+      branch: source.ref,
+      sourceDirectory: source.sourcePrefix,
+      sourceDirectoryUrl: `https://github.com/${source.repository}/tree/${source.ref}/${source.sourcePrefix}`,
+      repositoryUrl: `https://github.com/${source.repository}`,
+      license: sourceLicense,
+      attribution: source.attribution ?? existingSource?.attribution ?? source.repository,
+      latestKnownCommit: commit,
+      filterCount: files.length,
+    });
+    for (const file of files) {
+      const localPath = `${source.targetPrefix}${file.path.slice(source.sourcePrefix.length)}`;
+      const item = curated.get(localPath) ?? catalogItem({ ...source, license: sourceLicense }, file, commit);
+      item.source = { ...item.source, commit };
+      item.localPath = localPath;
+      filters.push(item);
+    }
+  }
+  return {
+    catalogVersion: existing.catalogVersion ?? '1.0.0',
+    generatedAt: new Date().toISOString().slice(0, 10),
+    scope: '当前同步配置中的全部 LUT 文件；仅收录已确认上游许可并由 luts-sources.json 管理的来源。',
+    scopeEn: 'All LUT files in the current sync configuration; only sources with confirmed upstream licensing and entries managed by luts-sources.json are included.',
+    totalFilters: filters.length,
+    formats: existing.formats ?? ['Adobe CUBE 3D LUT (.cube)'],
+    sources: sourceRows,
+    filters,
+  };
 }
 
 /** Lists configured LUT files from an upstream Git tree. */
@@ -96,9 +173,11 @@ if (targetTree.truncated) throw new Error('Target tree is truncated.');
 const targetEntries = Object.fromEntries(targetTree.tree.filter(item => item.type === 'blob').map(item => [item.path, item]));
 const changedEntries = [];
 const sourceRows = [];
+const sourceFilesById = new Map();
 
 for (const { source, latest } of changedSources) {
   const files = await sourceFiles(source);
+  sourceFilesById.set(source.id, files);
   const sourceByTargetPath = new Map(files.map(file => [
     `${source.targetPrefix}${file.path.slice(source.sourcePrefix.length)}`,
     file,
@@ -125,6 +204,10 @@ if (changedEntries.length === 0) {
   process.stdout.write('Source commits changed, but no configured LUT files changed; no commit created.\n');
   process.exit(0);
 }
+
+const existingCatalog = await readCatalog(targetEntries);
+const nextCatalog = buildCatalog(existingCatalog, config.sources, sourceFilesById, latestCommits);
+changedEntries.push({ path: catalogPath, mode: '100644', type: 'blob', sha: await createBlob(Buffer.from(`${JSON.stringify(nextCatalog, null, 2)}\n`)) });
 
 const currentAttribution = await getJson(`${api}/repos/${ownerRepo}/contents/ATTRIBUTION.md?ref=main`);
 const attributionText = Buffer.from(currentAttribution.content.replace(/\n/g, ''), 'base64').toString('utf8');
