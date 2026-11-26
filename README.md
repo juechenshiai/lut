@@ -20,6 +20,7 @@
 - [slaycamera/luts - luts](https://github.com/slaycamera/luts/tree/main/luts)
 - [abpy/FujifilmCameraProfiles - cube lut](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)
 - [BBC HDR Television Production LUTs - BBC LUT Release v1-8 Grouped](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)
+- [TrondW/glassmeter-film-looks - cube-srgb-33](https://github.com/TrondW/glassmeter-film-looks/tree/main/luts/cube-srgb-33)
 
 所有 LUT 及相关内容均归其各自作者或权利人所有。此处列出来源不代表本项目拥有这些内容，也不构成任何形式的授权、担保或对上游项目的背书。使用者应访问对应来源，核对具体文件的许可证、署名要求和其他使用条件，并自行确保其使用方式符合适用条款。
 
@@ -30,12 +31,13 @@
 | [`luts/slaycamera/`](luts/slaycamera/) | Amber、Fade、Neon、Film、Portrait 电影感 LUT | 5 | [slaycamera/luts](https://github.com/slaycamera/luts/tree/main/luts)，作者 slay，CC BY 4.0；须署名，上游说明不得原样出售原始文件。 |
 | [`luts/fujifilm-camera-profiles/`](luts/fujifilm-camera-profiles/) | Fujifilm 外观模拟：Provia、Velvia、Astia、Classic Chrome、Pro Neg、Eterna、Reala Ace 等；含 Display P3 与 sRGB 版本 | 22 | [abpy/FujifilmCameraProfiles](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut)，CC BY-NC-SA 4.0；须署名、非商业使用并以相同许可共享。 |
 | [`luts/bbc-hdr/v1.8-grouped/`](luts/bbc-hdr/v1.8-grouped/) | BBC HDR/SDR 转换 LUT：DaVinci Type III Headroom（12）、Deprecated Conversions（44）、Primary Live Production Type III Headroom（20）、Primary Post-Production Type I Nominal Range（12）、Secondary Conversions（22）、Test LUTs（4） | 114 | [BBC LUT Release v1.8](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16)，Apache-2.0；须随附许可证并保留适用声明。 |
+| [`luts/glassmeter/`](luts/glassmeter/) | GlassMeter 胶片模拟：彩色负片、反转片、黑白和 CineStill；sRGB 33³ `.cube` | 30 | [GlassMeter Film Looks](https://github.com/TrondW/glassmeter-film-looks/tree/main/luts/cube-srgb-33)，CC BY 4.0；署名 **Film simulations from GlassMeter by Glass Works (glass-works.ai)**。 |
 
-以上镜像均为 `.cube` 文件。完整归属、许可证文本和适用说明见 [`ATTRIBUTION.md`](ATTRIBUTION.md) 与 [`licenses/`](licenses/)。YahiaAngelo/Film-Luts 和 imnz730/LUTs 目前仅列为来源，因具体 LUT 的再分发许可未确认，未复制其文件。
+以上镜像均为 `.cube` 文件。GlassMeter LUT 为 sRGB 输入/输出的 33³ 查找表。完整归属、许可证文本和适用说明见 [`ATTRIBUTION.md`](ATTRIBUTION.md) 与 [`licenses/`](licenses/)。YahiaAngelo/Film-Luts 和 imnz730/LUTs 目前仅列为来源，因具体 LUT 的再分发许可未确认，未复制其文件。
 
 ### 自动更新
 
-已配置 自动同步脚本和来源配置已发布：[`SYNC.md`](SYNC.md)、[`luts-sources.json`](luts-sources.json)、[`source-commits.json`](source-commits.json) 和 [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs)。GitHub Actions 工作流文件尚未发布，因为当前 GitHub CLI 令牌缺少 `workflow` 权限；授权网络恢复后，将按每周日 04:17 UTC 运行。工作流逻辑是来源提交未变化时跳过文件树扫描，来源提交变化但 LUT blob 未变化时不创建提交，只有新增、修改或删除已许可 LUT 时才同步。
+自动同步脚本和来源配置已发布：[`SYNC.md`](SYNC.md)、[`luts-sources.json`](luts-sources.json)、[`source-commits.json`](source-commits.json) 和 [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs)。GitHub Actions 已通过手动创建并成功执行；当前按每周日 04:17 UTC 运行。工作流逻辑是来源提交未变化时跳过文件树扫描，来源提交变化但 LUT blob 未变化时不创建提交，只有新增、修改或删除已许可 LUT 时才同步。
 
 ### 非商业用途与删除说明
 
@@ -72,12 +74,13 @@ All LUTs and related materials remain the property of their respective authors o
 | [`luts/slaycamera/`](luts/slaycamera/) | Amber, Fade, Neon, Film, and Portrait cinematic LUTs | 5 | [slaycamera/luts](https://github.com/slaycamera/luts/tree/main/luts), creator slay, CC BY 4.0; attribution required. The upstream README says not to sell the original files as-is. |
 | [`luts/fujifilm-camera-profiles/`](luts/fujifilm-camera-profiles/) | Fujifilm looks including Provia, Velvia, Astia, Classic Chrome, Pro Neg, Eterna, and Reala Ace; Display P3 and sRGB variants | 22 | [abpy/FujifilmCameraProfiles](https://github.com/abpy/FujifilmCameraProfiles/tree/master/cube%20lut), CC BY-NC-SA 4.0; attribution, non-commercial use, and same-license sharing required. |
 | [`luts/bbc-hdr/v1.8-grouped/`](luts/bbc-hdr/v1.8-grouped/) | BBC HDR/SDR conversion LUTs: DaVinci Type III Headroom (12), Deprecated Conversions (44), Primary Live Production Type III Headroom (20), Primary Post-Production Type I Nominal Range (12), Secondary Conversions (22), and Test LUTs (4) | 114 | [BBC LUT Release v1.8](https://github.com/bbc/bbc_hdr_television_production_luts/tree/main/LUT_files/CUBE_LUT_files/BBC_LUT_Release_v1-8_Grouped_2026-09-16), Apache-2.0; include the license and retain applicable notices. |
+| [`luts/glassmeter/`](luts/glassmeter/) | GlassMeter film simulations: color negative, slide, black and white, and CineStill; sRGB 33³ `.cube` | 30 | [GlassMeter Film Looks](https://github.com/TrondW/glassmeter-film-looks/tree/main/luts/cube-srgb-33), CC BY 4.0; credit **Film simulations from GlassMeter by Glass Works (glass-works.ai)**. |
 
-All mirrored files are `.cube` LUTs. See [`ATTRIBUTION.md`](ATTRIBUTION.md) and [`licenses/`](licenses/) for full attribution, license texts, and applicable terms. YahiaAngelo/Film-Luts and imnz730/LUTs are listed as sources only; their specific LUT redistribution permissions have not been confirmed, so their files are not mirrored.
+All mirrored files are `.cube` LUTs. The GlassMeter LUTs are 33³ sRGB-in/sRGB-out tables. See [`ATTRIBUTION.md`](ATTRIBUTION.md) and [`licenses/`](licenses/) for full attribution, license texts, and applicable terms. YahiaAngelo/Film-Luts and imnz730/LUTs are listed as sources only; their specific LUT redistribution permissions have not been confirmed, so their files are not mirrored.
 
 ### Automated Updates
 
-The synchronization script and source metadata are published: [`SYNC.md`](SYNC.md), [`luts-sources.json`](luts-sources.json), [`source-commits.json`](source-commits.json), and [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs). The GitHub Actions workflow file is not published yet because the current GitHub CLI token lacks the `workflow` scope; once authorization connectivity is restored, it will run every Sunday at 04:17 UTC. The workflow skips the tree scan when source commits are unchanged, creates no commit when source commits change without LUT blob changes, and syncs only added, modified, or deleted allowed LUTs.
+The synchronization script and source metadata are published: [`SYNC.md`](SYNC.md), [`luts-sources.json`](luts-sources.json), [`source-commits.json`](source-commits.json), and [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs). GitHub Actions was created manually and has completed a successful run; it now runs every Sunday at 04:17 UTC. The workflow skips the tree scan when source commits are unchanged, creates no commit when source commits change without LUT blob changes, and syncs only added, modified, or deleted allowed LUTs.
 
 ### Non-commercial Use and Removal
 
