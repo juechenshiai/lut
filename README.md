@@ -37,7 +37,7 @@
 
 ### 自动更新
 
-自动同步脚本和来源配置已发布：[`SYNC.md`](SYNC.md)、[`luts-sources.json`](luts-sources.json)、[`source-commits.json`](source-commits.json) 和 [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs)。GitHub Actions 已通过手动创建并成功执行；当前按每周日 04:17 UTC 运行。工作流逻辑是来源提交未变化时跳过文件树扫描，来源提交变化但 LUT blob 未变化时不创建提交，只有新增、修改或删除已许可 LUT 时才同步。
+自动同步脚本和来源配置已发布：[`SYNC.md`](SYNC.md)、[`luts-sources.json`](luts-sources.json)、[`source-commits.json`](source-commits.json)、[`luts-catalog.json`](luts-catalog.json) 和 [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs)。GitHub Actions 已通过手动创建并成功执行；当前按每周日 04:17 UTC 运行。工作流逻辑是来源提交未变化时跳过文件树扫描，来源提交变化但 LUT blob 未变化时不创建提交；发现 LUT 新增、修改或删除时，会在同一提交中同步 LUT 并更新 `luts-catalog.json`。
 
 ### 非商业用途与删除说明
 
@@ -80,7 +80,7 @@ All mirrored files are `.cube` LUTs. The GlassMeter LUTs are 33³ sRGB-in/sRGB-o
 
 ### Automated Updates
 
-The synchronization script and source metadata are published: [`SYNC.md`](SYNC.md), [`luts-sources.json`](luts-sources.json), [`source-commits.json`](source-commits.json), and [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs). GitHub Actions was created manually and has completed a successful run; it now runs every Sunday at 04:17 UTC. The workflow skips the tree scan when source commits are unchanged, creates no commit when source commits change without LUT blob changes, and syncs only added, modified, or deleted allowed LUTs.
+The synchronization script and source metadata are published: [`SYNC.md`](SYNC.md), [`luts-sources.json`](luts-sources.json), [`source-commits.json`](source-commits.json), [`luts-catalog.json`](luts-catalog.json), and [`scripts/sync-luts.mjs`](scripts/sync-luts.mjs). GitHub Actions was created manually and has completed a successful run; it now runs every Sunday at 04:17 UTC. The workflow skips the tree scan when source commits are unchanged, creates no commit when source commits change without LUT blob changes, and when LUTs are added, modified, or deleted it syncs the LUTs and updates `luts-catalog.json` in the same commit.
 
 ### Non-commercial Use and Removal
 
